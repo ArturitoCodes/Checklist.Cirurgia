@@ -1,6 +1,6 @@
 import streamlit as st
 
-# Estrutura: Especialidade → Cirurgia → Abordagem → Tipo (Urgência/Programada)
+# Estrutura completa: Especialidade → Cirurgia → Abordagem → Tipo
 checklists = {
     "Obstetrícia/Ginecologia": {
         "Cesariana": {
@@ -27,152 +27,203 @@ checklists = {
                     "Kit de emergência obstétrica",
                     "Oxitocina pronta",
                     "Adrenalina 1:1000"
-                ]  # itens extras para urgência
-            }
-        },
-        "Histerectomia": {
-            "Aberta": {
-                "Programada": [
-                    "Itens base histerectomia aberta programada"
-                ],
-                "Urgência": [
-                    "Itens extra urgência histerectomia"
                 ]
-            },
-            "Laparoscópica": {
-                "Programada": [
-                    "Trocartes, ótica, clipadora..."
-                ],
-                "Urgência": []
             }
         }
     },
     "Cirurgia Geral": {
-        "Apendicectomia": {
-            "Aberta": {
-                "Programada": [
-                    "Bisturi elétrico",
-                    "Pinças hemostáticas",
-                    "Tesoura de Mayo",
-                    "Retratores de Balfour",
-                    "Campos estéreis",
-                    "Luvas estéreis",
-                    "Fios de sutura (vicryl 2-0 e 3-0)",
-                    "Drenos aspirativos",
-                    "Compressas estéreis"
-                ],
-                "Urgência": [
-                    "Antibiótico IV pronto",
-                    "Soro aquecido"
-                ]
-            },
+        "Hérnia Hiato": {
             "Laparoscópica": {
                 "Programada": [
-                    "Trocartes (5mm e 10mm)",
-                    "Ótica 30º",
-                    "Pinça de disseção Maryland",
-                    "Clipadora",
-                    "Bolsa de extração",
-                    "Insuflador de CO2",
-                    "Grampeador linear",
-                    "Campos laparoscópicos",
-                    "Luvas estéreis"
+                    "**FERROS:**",
+                    "Cx operação",
+                    "Cx laparoscopia",
+                    "Cabo fonte de luz",
+                    "Cabo CO2",
+                    "Porta agulhas LPC",
+                    "Punhos de foco",
+                    "Separador fígado Nathason (só a parte da mesa cirúrgica; escolhem tamanho depois)",
+                    "Cabo ultracisión",
+                    "**CONSUMÍVEIS:**",
+                    "Trocar 5 (x2)",
+                    "Trocar 11 (x2)",
+                    "Lâmina 11",
+                    "Cobertura de tubo",
+                    "Seringa 20ml",
+                    "Agulha IM",
+                    "Ropi 7,5mg",
+                    "Pensos impermeável",
+                    "Compressas médias e pequenas",
+                    "Nastro (cortar pela metade; dar numa grasper ou clinch)",
+                    "Aspirador LPC (SOS)",
+                    "Termo",
+                    "Ultracisión 36",
+                    "Venda crepe",
+                    "**FIOS:**",
+                    "Vicryl 2/0 (5/8)",
+                    "Ethilon 3/0",
+                    "Premicron con plegets",
+                    "Premiparch (plegets soltos)",
+                    "Seda 2/0 (cortar tamanho do papel para secar paciente)",
+                    "V-loc 3/0 (vermelho)",
+                    "*Torre do lado direito do doente, quase na cabeça; pernas abertas como na colecistectomia, fixadas com venda crepe*"
                 ],
-                "Urgência": [
-                    "Kit de conversão para aberta (por segurança)"
-                ]
+                "Urgência": []
+            }
+        },
+        "By-pass Gástrico": {
+            "Laparoscópica": {
+                "Programada": [
+                    "**FERROS:**",
+                    "Cx operação",
+                    "Cx laparoscopia",
+                    "Cabo fonte de luz",
+                    "Cabo CO2",
+                    "Porta agulhas LPC",
+                    "Termo",
+                    "Punhos de foco",
+                    "Separador fígado Nathason (só a parte da mesa cirúrgica)",
+                    "Cabo ultracision",
+                    "**CONSUMÍVEIS:**",
+                    "Trocar 5 (x2) (SOS)",
+                    "Trocar 11 (x2)",
+                    "Trocar 12 (x2)",
+                    "Lâmina 11",
+                    "Cobertura de tubo",
+                    "Seringa 20ml",
+                    "Agulha IM",
+                    "Ropi 7,5mg",
+                    "Pensos impermeável",
+                    "Compressas médias e pequenas",
+                    "Aspirador LPC (SOS)",
+                    "Echelon 60",
+                    "Cargas verdes (x5) 60+",
+                    "Venda crepe (para pernas)",
+                    "Meias compressivas",
+                    "SV",
+                    "Ultracision 36",
+                    "**FIOS:**",
+                    "Vicryl 2/0 (5/8)",
+                    "Ethilon 3/0",
+                    "V-loc 3/0 (vermelho) (3 ou 4)",
+                    "Prolene 1 (agulha recta; se não houver, redonda e põe recta)",
+                    "*Torre do lado direito do doente, quase na cabeça; pernas abertas como na colecistectomia*"
+                ],
+                "Urgência": []
+            }
+        },
+        "Hérnia Inguinal": {
+            "Laparoscópica": {
+                "Programada": [
+                    "**FERROS:**",
+                    "Cx operação",
+                    "Cx laparoscopia",
+                    "Cabo fonte de luz",
+                    "Cabo CO2",
+                    "Pinça sem dente comprida",
+                    "Punhos de foco",
+                    "**CONSUMÍVEIS:**",
+                    "Trocar 5",
+                    "Trocar hasson",
+                    "Balão distensão extra peritoneal",
+                    "Lâmina 11",
+                    "Cobertura de tubo",
+                    "Seringa 20ml",
+                    "Agulha IM",
+                    "Ropi 7,5mg",
+                    "Pensos impermeável",
+                    "Compressas médias e pequenas",
+                    "Afastador Sean miller (SOS)",
+                    "Prótese optilene mesh 15x15",
+                    "**FIOS:**",
+                    "Vicryl 2/0 (5/8)",
+                    "Ethilon 3/0",
+                    "*Torre nos pés do doente; pernas fechadas; pedal no lado esquerdo*",
+                    "*Rede: enrolar num canudinho com kelly na ponta; dar na grasper*"
+                ],
+                "Urgência": []
+            }
+        },
+        "Hérnia Incisional/Umbilical": {
+            "Laparoscópica": {
+                "Programada": [
+                    "**FERROS:**",
+                    "Cx operação",
+                    "Cx laparoscopia",
+                    "Cabo fonte de luz",
+                    "Cabo CO2",
+                    "Porta agulhas LPC",
+                    "Punhos de foco",
+                    "**CONSUMÍVEIS:**",
+                    "Trocar 5 (x2)",
+                    "Trocar 12",
+                    "Lâmina 11",
+                    "Cobertura de tubo",
+                    "Seringa 20ml",
+                    "Agulha IM",
+                    "Ropi 7,5mg",
+                    "Pensos impermeável",
+                    "Compressas médias e pequenas",
+                    "Prótese ventralight (com seringa)",
+                    "Endoclose (passa fios)",
+                    "Optifix",
+                    "Aspirador LPC (SOS)",
+                    "**FIOS:**",
+                    "Vicryl 2/0 (5/8)",
+                    "Ethilon 3/0",
+                    "Monosof 1 (fio duplo, verde por fora)",
+                    "*Torre lateral no lado esquerdo do doente*"
+                ],
+                "Urgência": []
+            }
+        },
+        "Fistulectomia": {
+            "Aberta": {
+                "Programada": [
+                    "**FERROS:**",
+                    "Cx operação",
+                    "Estilete",
+                    "**CONSUMÍVEIS:**",
+                    "Cureta 7",
+                    "Biotomo 4",
+                    "Campo com óculo",
+                    "Compressas",
+                    "Gaze gorda (em triângulo)",
+                    "Bisturi elétrico",
+                    "*Se infiltração PRP: agulha IM*",
+                    "*Para quisto: mesmo que fistula, sem bisturi elétrico*"
+                ],
+                "Urgência": []
             }
         },
         "Colecistectomia": {
             "Laparoscópica": {
                 "Programada": [
-                    "Trocartes, ótica, clipadora..."
-                ],
-                "Urgência": [
-                    "Antibiótico profilático IV"
-                ]
-            }
-        }
-    },
-    "ORL": {
-        "Adenoidectomia": {
-            "Endoscópica": {
-                "Programada": [
-                    "Itens base adenoides programada"
-                ],
-                "Urgência": [
-                    "Bipolar com canula de aspiração para acopolar",
-                    "Adrenalina tópica",
-                    "Kit de hemorragia"
-                ]
-            }
-        }
-    },
-    "Ortopedia": {
-        "Artroscopia de Joelho": {
-            "Artroscópica": {
-                "Programada": [
-                    "Ótica 30º 4mm",
-                    "Shaver e bomba de irrigação",
-                    "Pinças de basket",
-                    "Canulas arthroscópicas",
-                    "Solução de irrigação (soro 3L)",
-                    "Torniquete pneumático",
-                    "Campos estéreis",
-                    "Luvas estéreis"
-                ],
-                "Urgência": [
-                    "Antibiótico IV",
-                    "Analgesia intra-articular pronta"
-                ]
-            }
-        }
-    }
-    # Adiciona mais especialidades, cirurgias, abordagens conforme precisares
-}
-
-st.set_page_config(page_title="Checklist Bloco Operatório", page_icon="🏥")
-
-st.title("🏥 Checklist de Materiais - Bloco Operatório")
-st.markdown("**Seleciona passo a passo para gerar a checklist correta**")
-
-# 1. Especialidade
-especialidade = st.selectbox("Especialidade", options=list(checklists.keys()))
-
-if especialidade:
-    # 2. Cirurgia
-    cirurgia = st.selectbox("Cirurgia", options=list(checklists[especialidade].keys()))
-
-    if cirurgia:
-        # 3. Abordagem
-        abordagem = st.selectbox("Abordagem Cirúrgica", options=list(checklists[especialidade][cirurgia].keys()))
-
-        if abordagem:
-            # 4. Tipo (Urgência ou Programada)
-            tipo = st.radio("Tipo de cirurgia", options=["Programada", "Urgência"])
-
-            # Gera lista final
-            itens_base = checklists[especialidade][cirurgia][abordagem][tipo]
-            itens_urgencia = checklists[especialidade][cirurgia][abordagem]["Urgência"] if tipo == "Urgência" else []
-            itens_total = itens_base + itens_urgencia
-
-            st.subheader(f"Checklist: {especialidade} → {cirurgia} ({abordagem}) – {tipo}")
-
-            itens_em_falta = []
-            for item in itens_total:
-                verificado = st.checkbox(item, key=item)  # key única para evitar erros
-                if not verificado:
-                    itens_em_falta.append(item)
-
-            if st.button("🔍 Verificar Checklist", type="primary"):
-                if itens_em_falta:
-                    st.error("⚠️ **ITENS EM FALTA:**")
-                    for item in itens_em_falta:
-                        st.write(f"• {item}")
-                    st.warning("Confirma estes itens antes de iniciar a cirurgia.")
-                else:
-                    st.success("✅ **Tudo verificado! Pode prosseguir com segurança.**")
-                    st.balloons()
-
-st.markdown("---")
-st.caption("Criado por Artur Pinheiro 🚀")
+                    "**FERROS:**",
+                    "Cx operação",
+                    "Cx laparoscopia",
+                    "Cabo fonte de luz",
+                    "Cabo CO2",
+                    "Afastador Sean miller",
+                    "Pinça Hemolock roxa",
+                    "**CONSUMÍVEIS:**",
+                    "Trouxa laparoscopia",
+                    "Lâmina 11",
+                    "Trocar 5 (2)",
+                    "Trocar 11 (2)",
+                    "Clips Hemolock roxos",
+                    "Compressas médias e pequenas",
+                    "Pensos impermeáveis",
+                    "Seringa 20ml",
+                    "Agulha IM",
+                    "Ropi 7,5mg",
+                    "Cobertura tubo",
+                    "Contentor para anatomia",
+                    "Saco de recolha",
+                    "Aspirador elephant",
+                    "**FIOS:**",
+                    "Vicryl 2/0 (5/8)",
+                    "Ethilon 3/0",
+                    "*Monopolar: 35/35; CO2: 12-40*",
+                    "*Torre no lado direito do doente; pedal no meio das pernas; pernas abertas com crepe; braços abertos*",
+                    "*No final: batufo (compressa cortada em 2 com betadine
