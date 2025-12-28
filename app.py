@@ -1,6 +1,6 @@
 import streamlit as st
 
-# As tuas checklists (podes mudar ou adicionar mais depois)
+# Checklists de materiais por tipo de cirurgia
 checklists = {
     "Apendicectomia": [
         "Bisturi elétrico",
@@ -25,7 +25,7 @@ checklists = {
         "Campos laparoscópicos",
         "Luvas estéreis"
     ],
-      "Cesariana": [
+    "Cesariana": [
         "Betadine",
         "Bisturi elétrico",
         "Placa adulto",
@@ -54,37 +54,36 @@ checklists = {
     ]
 }
 
-st.set_page_config(page_title="Checklist Bloco", page_icon="🏥")
+# Configuração da página
+st.set_page_config(page_title="Checklist Bloco Operatório", page_icon="🏥")
 
+# Título e instrução
 st.title("🏥 Checklist de Materiais - Bloco Operatório")
-st.markdown("**Verifica todos os itens antes da cirurgia**")
+st.markdown("**Verifica todos os itens antes da cirurgia para maior segurança do doente**")
 
+# Seleção da cirurgia
 cirurgia = st.selectbox("Escolhe o tipo de cirurgia", options=list(checklists.keys()))
 
 st.subheader(f"Checklist: {cirurgia}")
 
+# Lista de checkboxes
 itens_em_falta = []
 for item in checklists[cirurgia]:
     verificado = st.checkbox(item)
     if not verificado:
         itens_em_falta.append(item)
 
+# Botão de verificação
 if st.button("🔍 Verificar Checklist", type="primary"):
     if itens_em_falta:
         st.error("⚠️ **ITENS EM FALTA:**")
         for item in itens_em_falta:
             st.write(f"• {item}")
-        st.warning("Confirma estes itens antes de começar a cirurgia.")
+        st.warning("Por favor, confirma estes itens antes de iniciar a cirurgia.")
     else:
         st.success("✅ **Tudo verificado! Cirurgia pode prosseguir com segurança.**")
-        st.balloons()  # animação fixe
+        st.balloons()  # animação de celebração
 
+# Rodapé
 st.markdown("---")
-
-st.caption("Criado por Artur Pinheiro")
-
-
-
-
-
-
+st.caption("Criado por Artur Pinheiro 🚀")
