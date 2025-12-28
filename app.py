@@ -26,14 +26,22 @@ checklists = {
         "Luvas estéreis"
     ],
     "Cesariana": [
+        "Betadine"                   
         "Bisturi elétrico",
-        "Pinças Kocher",
-        "Retratores de Balfour",
-        "Aspirador Yankauer",
-        "Campos estéreis obstétricos",
-        "Fios de sutura (vicryl 1 e 2-0)",
+        "Placa adulto" 
+        "Aspirador",
+        "Canula Yankauer",
+        "Lâmina 24",
+        "Trouxa de cesariana" 
+        "Fios de sutura (vicryl 1,vicryl 0, monocryl 3-0)",
         "Compressas grandes",
-        "Luvas estéreis"
+        "Compressas médias",
+        "Luvas"
+        "Lidogel"
+        "Algália 16 Látex"
+        "Saco de Urina 2L"
+        "Seringa de 10cc de Água Bi"
+        "Penso impermeável 25cm" 
     ],
     "Herniorrafia Inguinal": [
         "Malha de polipropileno",
@@ -72,4 +80,5 @@ if st.button("🔍 Verificar Checklist", type="primary"):
         st.balloons()  # animação fixe
 
 st.markdown("---")
-st.caption("Criado por ti – Enfermeiro do Bloco Operatório 👨‍⚕️💻")
+
+st.caption("Criado por Artur Pinheiro" 🚀)
