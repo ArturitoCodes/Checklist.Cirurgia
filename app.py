@@ -26,7 +26,7 @@ checklists = {
         "Luvas estéreis"
     ],
     "Cesariana": [
-        "Betadine"                   
+        "Betadine",                   
         "Bisturi elétrico",
         "Placa adulto" 
         "Aspirador",
@@ -82,4 +82,5 @@ if st.button("🔍 Verificar Checklist", type="primary"):
 st.markdown("---")
 
 st.caption("Criado por Artur Pinheiro")
+
 
