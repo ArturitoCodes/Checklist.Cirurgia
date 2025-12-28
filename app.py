@@ -81,4 +81,5 @@ if st.button("🔍 Verificar Checklist", type="primary"):
 
 st.markdown("---")
 
-st.caption("Criado por Artur Pinheiro" 🚀)
+st.caption("Criado por Artur Pinheiro")
+
