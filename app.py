@@ -25,15 +25,15 @@ checklists = {
         "Campos laparoscópicos",
         "Luvas estéreis"
     ],
-    "Cesariana": [
-        "Betadine",                   
+      "Cesariana": [
+        "Betadine",
         "Bisturi elétrico",
-        "Placa adulto", 
+        "Placa adulto",
         "Aspirador",
         "Canula Yankauer",
         "Lâmina 24",
-        "Trouxa de cesariana", 
-        "Fios de sutura (vicryl 1,vicryl 0, monocryl 3-0)",
+        "Trouxa de cesariana",
+        "Fios de sutura (vicryl 1, vicryl 0, monocryl 3-0)",
         "Compressas grandes",
         "Compressas médias",
         "Luvas",
@@ -82,6 +82,7 @@ if st.button("🔍 Verificar Checklist", type="primary"):
 st.markdown("---")
 
 st.caption("Criado por Artur Pinheiro")
+
 
 
 
