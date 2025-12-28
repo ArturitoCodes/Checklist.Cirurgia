@@ -32,7 +32,7 @@ checklists = {
         "Aspirador",
         "Canula Yankauer",
         "Lâmina 24",
-        "Trouxa de cesariana" 
+        "Trouxa de cesariana", 
         "Fios de sutura (vicryl 1,vicryl 0, monocryl 3-0)",
         "Compressas grandes",
         "Compressas médias",
@@ -82,6 +82,7 @@ if st.button("🔍 Verificar Checklist", type="primary"):
 st.markdown("---")
 
 st.caption("Criado por Artur Pinheiro")
+
 
 
 
