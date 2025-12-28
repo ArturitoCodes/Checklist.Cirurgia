@@ -28,7 +28,7 @@ checklists = {
     "Cesariana": [
         "Betadine",                   
         "Bisturi elétrico",
-        "Placa adulto" 
+        "Placa adulto", 
         "Aspirador",
         "Canula Yankauer",
         "Lâmina 24",
@@ -41,7 +41,7 @@ checklists = {
         "Algália 16 Látex",
         "Saco de Urina 2L",
         "Seringa de 10cc de Água Bi",
-        "Penso impermeável 25cm",
+        "Penso impermeável 25cm"
     ],
     "Herniorrafia Inguinal": [
         "Malha de polipropileno",
@@ -82,6 +82,7 @@ if st.button("🔍 Verificar Checklist", type="primary"):
 st.markdown("---")
 
 st.caption("Criado por Artur Pinheiro")
+
 
 
 
