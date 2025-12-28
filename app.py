@@ -36,12 +36,12 @@ checklists = {
         "Fios de sutura (vicryl 1,vicryl 0, monocryl 3-0)",
         "Compressas grandes",
         "Compressas médias",
-        "Luvas"
-        "Lidogel"
-        "Algália 16 Látex"
-        "Saco de Urina 2L"
-        "Seringa de 10cc de Água Bi"
-        "Penso impermeável 25cm" 
+        "Luvas",
+        "Lidogel",
+        "Algália 16 Látex",
+        "Saco de Urina 2L",
+        "Seringa de 10cc de Água Bi",
+        "Penso impermeável 25cm",
     ],
     "Herniorrafia Inguinal": [
         "Malha de polipropileno",
@@ -82,5 +82,6 @@ if st.button("🔍 Verificar Checklist", type="primary"):
 st.markdown("---")
 
 st.caption("Criado por Artur Pinheiro")
+
 
 
