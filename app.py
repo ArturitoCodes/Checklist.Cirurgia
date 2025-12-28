@@ -226,4 +226,170 @@ checklists = {
                     "Ethilon 3/0",
                     "*Monopolar: 35/35; CO2: 12-40*",
                     "*Torre no lado direito do doente; pedal no meio das pernas; pernas abertas com crepe; braços abertos*",
-                    "*No final: batufo (compressa cortada em 2 com betadine
+                    "*No final: batufo (compressa cortada em 2 com betadine pomada + compressa dobrada em 4 por cima)*"
+                ],
+                "Urgência": []
+            }
+        },
+        "Apendicectomia": {
+            "Laparoscópica": {
+                "Programada": [
+                    "**FERROS:**",
+                    "Cx operação",
+                    "Cx laparoscopia",
+                    "Lente 30",
+                    "Punhos foco",
+                    "Pinça Hemolock XL",
+                    "Sean miller",
+                    "**CONSUMÍVEIS:**",
+                    "Compressas médias e pequenas",
+                    "Trouxa laparoscopia",
+                    "Clips Hemolock XL",
+                    "Trocar 5",
+                    "Trocar 11",
+                    "Ropi 7,5",
+                    "Seringa 20ml",
+                    "Agulha IM",
+                    "Pensos impermeáveis",
+                    "Batufo com Betadine pomada",
+                    "Elephant (SOS)",
+                    "Saco recolha",
+                    "Contentor anatomia",
+                    "**FIOS:**",
+                    "Vicryl 2/0 (5/8)",
+                    "Ethilon 3/0",
+                    "*Torre no lado direito do abdómen; algaliar (retirar no final); braço direito aberto, esquerdo ao longo do corpo; pernas fechadas*"
+                ],
+                "Urgência": []
+            }
+        },
+        "Hemorroidectomia": {
+            "Aberta": {
+                "Programada": [
+                    "**FERROS:**",
+                    "Cx operação",
+                    "Punhos foco",
+                    "**CONSUMÍVEIS:**",
+                    "Mesa mayo",
+                    "Campo com óculo",
+                    "Compressas médias",
+                    "Lidocaina 2% + Ropi 7,5mg",
+                    "Seringa 20",
+                    "Agulha IM",
+                    "Bisturi elétrico (35/35)",
+                    "Gaze gorda",
+                    "Betadine pomada",
+                    "Máquina hemorroidas (SOS)",
+                    "Tiras adesivo",
+                    "Desinfeção com iodopovidona"
+                ],
+                "Urgência": []
+            }
+        },
+        "Esfincterotomia e/ou Fissurectomia": {
+            "Aberta": {
+                "Programada": [
+                    "**FERROS:**",
+                    "Cx operação",
+                    "Punhos de foco",
+                    "Estilete anuscopio metálico",
+                    "**CONSUMÍVEIS:**",
+                    "Mesa mayo",
+                    "Campo com óculo grande",
+                    "Iodopovidona",
+                    "Instilagel",
+                    "Betadine pomada",
+                    "Ropi 7,5mg + lidocaina 2%",
+                    "Seringa 20ml",
+                    "Agulha IM",
+                    "Compressas médias",
+                    "Gaze gorda",
+                    "Bisturi elétrico",
+                    "Adesivo castanho"
+                ],
+                "Urgência": []
+            }
+        }
+    },
+    "ORL": {
+        "Adenoidectomia": {
+            "Endoscópica": {
+                "Programada": [
+                    "Itens base adenoides programada"
+                ],
+                "Urgência": [
+                    "Bipolar com canula de aspiração para acopolar",
+                    "Adrenalina tópica",
+                    "Kit de hemorragia"
+                ]
+            }
+        }
+    },
+    "Ortopedia": {
+        "Artroscopia de Joelho": {
+            "Artroscópica": {
+                "Programada": [
+                    "Ótica 30º 4mm",
+                    "Shaver e bomba de irrigação",
+                    "Pinças de basket",
+                    "Canulas arthroscópicas",
+                    "Solução de irrigação (soro 3L)",
+                    "Torniquete pneumático",
+                    "Campos estéreis",
+                    "Luvas estéreis"
+                ],
+                "Urgência": [
+                    "Antibiótico IV",
+                    "Analgesia intra-articular pronta"
+                ]
+            }
+        }
+    }
+}
+
+st.set_page_config(page_title="Checklist Bloco Operatório", page_icon="🏥")
+
+st.title("🏥 Checklist de Materiais - Bloco Operatório")
+st.markdown("**Seleciona passo a passo para gerar a checklist personalizada**")
+
+especialidade = st.selectbox("Especialidade", options=list(checklists.keys()))
+
+if especialidade:
+    cirurgia = st.selectbox("Cirurgia", options=list(checklists[especialidade].keys()))
+
+    if cirurgia:
+        abordagem = st.selectbox("Abordagem Cirúrgica", options=list(checklists[especialidade][cirurgia].keys()))
+
+        if abordagem:
+            tipo = st.radio("Tipo de cirurgia", options=["Programada", "Urgência"])
+
+            itens_base = checklists[especialidade][cirurgia][abordagem].get(tipo, [])
+            itens_urgencia = checklists[especialidade][cirurgia][abordagem].get("Urgência", [])
+            itens_total = itens_base + itens_urgencia if tipo == "Urgência" else itens_base
+
+            st.subheader(f"Checklist: {especialidade} → {cirurgia} ({abordagem}) – {tipo}")
+
+            if itens_total:
+                itens_em_falta = []
+                for item in itens_total:
+                    if item.startswith("**") or item.startswith("*"):
+                        st.markdown(item)
+                    else:
+                        verificado = st.checkbox(item, key=item)
+                        if not verificado:
+                            itens_em_falta.append(item)
+
+                if st.button("🔍 Verificar Checklist", type="primary"):
+                    if itens_em_falta:
+                        st.error("⚠️ **ITENS EM FALTA:**")
+                        for item in itens_em_falta:
+                            st.write(f"• {item}")
+                        st.warning("Por favor, confirma estes itens antes de iniciar a cirurgia.")
+                    else:
+                        st.success("✅ **Tudo verificado! Pode prosseguir com segurança.**")
+                        st.balloons()
+            else:
+                st.info("Não há itens definidos para esta combinação.")
+
+st.markdown("---")
+st.caption("Criado por Artur Pinheiro 🚀")
