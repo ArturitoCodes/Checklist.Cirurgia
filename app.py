@@ -1,6 +1,6 @@
 import streamlit as st
 
-# Estrutura: Especialidade → Cirurgia → Abordagem (só itens normais + posicionamento fixo)
+# Estrutura: Especialidade → Cirurgia → Abordagem (só itens normais + posicionamento condicional)
 checklists = {
     "Obstetrícia/Ginecologia": {
         "Cesariana": {
@@ -23,7 +23,7 @@ checklists = {
                     "Seringa de 10cc de Água Bi",
                     "Penso impermeável 25cm"
                 ],
-                "posicionamento": "🧍‍♀️ **Posicionamento do doente:** Decúbito dorsal, braços abertos, pernas em litotomia se necessário.\n🏥 Torre e monitor ao pé do doente."
+                "posicionamento": "🧍‍♀️ **Posicionamento do doente:** Decúbito dorsal, braços abertos, pernas em litotomia se necessário."
             }
         }
     },
@@ -180,9 +180,7 @@ checklists = {
                     "Campo com óculo",
                     "Compressas",
                     "Gaze gorda (em triângulo)",
-                    "Bisturi elétrico",
-                    "*Se infiltração PRP: agulha IM*",
-                    "*Para quisto: mesmo que fistula, sem bisturi elétrico*"
+                    "Bisturi elétrico"
                 ],
                 "posicionamento": "🧍‍♂️ **Posicionamento:** Posição litotomia ou prona conforme acesso."
             }
@@ -299,33 +297,6 @@ checklists = {
                 "posicionamento": "🧍‍♂️ **Posicionamento:** Posição litotomia."
             }
         }
-    },
-    "ORL": {
-        "Adenoidectomia": {
-            "Endoscópica": {
-                "itens": [
-                    "Itens base adenoides"
-                ],
-                "posicionamento": "🧍‍♂️ **Posicionamento:** Decúbito dorsal com hiperextensão cervical."
-            }
-        }
-    },
-    "Ortopedia": {
-        "Artroscopia de Joelho": {
-            "Artroscópica": {
-                "itens": [
-                    "Ótica 30º 4mm",
-                    "Shaver e bomba de irrigação",
-                    "Pinças de basket",
-                    "Canulas arthroscópicas",
-                    "Solução de irrigação (soro 3L)",
-                    "Torniquete pneumático",
-                    "Campos estéreis",
-                    "Luvas estéreis"
-                ],
-                "posicionamento": "🧍‍♂️ **Posicionamento:** Decúbito dorsal, perna pendente ou com suporte."
-            }
-        }
     }
 }
 
@@ -344,13 +315,14 @@ if especialidade:
 
         if abordagem:
             itens = checklists[especialidade][cirurgia][abordagem]["itens"]
-            posicionamento = checklists[especialidade][cirurgia][abordagem].get("posicionamento", "Posicionamento padrão.")
+            posicionamento = checklists[especialidade][cirurgia][abordagem]["posicionamento"]
 
-            # Posicionamento fixo
-            st.markdown("---")
-            st.markdown("### 🧍 Posicionamento do Doente e Torre")
-            st.markdown(posicionamento)
-            st.markdown("---")
+            # Posicionamento condicional: só mostra torre se Laparoscópica ou Artroscópica
+            if "Laparoscópica" in abordagem or "Artroscópica" in abordagem or "Endoscópica" in abordagem:
+                st.markdown("---")
+                st.markdown("### 🧍 Posicionamento do Doente e Torre")
+                st.markdown(posicionamento)
+                st.markdown("---")
 
             # Checklist de materiais
             st.subheader(f"Checklist de Materiais: {especialidade} → {cirurgia} ({abordagem})")
@@ -375,4 +347,8 @@ if especialidade:
                     st.balloons()
 
 st.markdown("---")
-st.caption("Criado por Artur Pinheiro 🚀")
+st.caption("Criado por BO Braga Sul")
+
+# 5 linhas abaixo, apenas AP (centralizado e discreto)
+st.markdown("<br>" * 5, unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: gray; font-size: 14px;'>AP</p>", unsafe_allow_html=True)
