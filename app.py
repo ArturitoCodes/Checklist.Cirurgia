@@ -1,6 +1,6 @@
 import streamlit as st
 
-# Estrutura: Especialidade → Cirurgia → Abordagem (só itens normais + posicionamento condicional)
+# Estrutura: Especialidade → Cirurgia → Abordagem
 checklists = {
     "Obstetrícia/Ginecologia": {
         "Cesariana": {
@@ -23,7 +23,7 @@ checklists = {
                     "Seringa de 10cc de Água Bi",
                     "Penso impermeável 25cm"
                 ],
-                "posicionamento": "🧍‍♀️ **Posicionamento do doente:** Decúbito dorsal, braços abertos, pernas em litotomia se necessário."
+                "posicionamento": "Decúbito dorsal, braços abertos, pernas em litotomia se necessário."
             }
         }
     },
@@ -63,7 +63,7 @@ checklists = {
                     "Seda 2/0 (cortar tamanho do papel para secar paciente)",
                     "V-loc 3/0 (vermelho)"
                 ],
-                "posicionamento": "🧍‍♂️ **Posicionamento:** Decúbito dorsal, pernas abertas como na colecistectomia, fixadas com venda crepe.\n🏥 Torre do lado direito do doente, quase na cabeça."
+                "posicionamento": "Decúbito dorsal, pernas abertas como na colecistectomia, fixadas com venda crepe.\nTorre do lado direito do doente, quase na cabeça."
             }
         },
         "By-pass Gástrico": {
@@ -103,7 +103,7 @@ checklists = {
                     "V-loc 3/0 (vermelho) (3 ou 4)",
                     "Prolene 1 (agulha recta; se não houver, redonda e põe recta)"
                 ],
-                "posicionamento": "🧍‍♂️ **Posicionamento:** Pernas abertas como na colecistectomia.\n🏥 Torre do lado direito do doente, quase na cabeça."
+                "posicionamento": "Pernas abertas como na colecistectomia.\nTorre do lado direito do doente, quase na cabeça."
             }
         },
         "Hérnia Inguinal": {
@@ -133,7 +133,7 @@ checklists = {
                     "Vicryl 2/0 (5/8)",
                     "Ethilon 3/0"
                 ],
-                "posicionamento": "🧍‍♂️ **Posicionamento:** Torre nos pés do doente; pernas fechadas; pedal no lado esquerdo.\n*Rede: enrolar num canudinho com kelly na ponta; dar na grasper*"
+                "posicionamento": "Torre nos pés do doente; pernas fechadas; pedal no lado esquerdo.\nRede: enrolar num canudinho com kelly na ponta; dar na grasper."
             }
         },
         "Hérnia Incisional/Umbilical": {
@@ -165,7 +165,7 @@ checklists = {
                     "Ethilon 3/0",
                     "Monosof 1 (fio duplo, verde por fora)"
                 ],
-                "posicionamento": "🧍‍♂️ **Posicionamento:** Torre lateral no lado esquerdo do doente."
+                "posicionamento": "Torre lateral no lado esquerdo do doente."
             }
         },
         "Fistulectomia": {
@@ -182,7 +182,7 @@ checklists = {
                     "Gaze gorda (em triângulo)",
                     "Bisturi elétrico"
                 ],
-                "posicionamento": "🧍‍♂️ **Posicionamento:** Posição litotomia ou prona conforme acesso."
+                "posicionamento": "Posição litotomia ou prona conforme acesso."
             }
         },
         "Colecistectomia": {
@@ -216,7 +216,7 @@ checklists = {
                     "*Monopolar: 35/35; CO2: 12-40*",
                     "*No final: batufo (compressa cortada em 2 com betadine pomada + compressa dobrada em 4 por cima)*"
                 ],
-                "posicionamento": "🧍‍♂️ **Posicionamento:** Pernas abertas com crepe, braços abertos.\n🏥 Torre no lado direito do doente; pedal no meio das pernas do paciente."
+                "posicionamento": "Pernas abertas com crepe, braços abertos.\nTorre no lado direito do doente; pedal no meio das pernas do paciente."
             }
         },
         "Apendicectomia": {
@@ -247,7 +247,7 @@ checklists = {
                     "Vicryl 2/0 (5/8)",
                     "Ethilon 3/0"
                 ],
-                "posicionamento": "🧍‍♂️ **Posicionamento:** Torre no lado direito do abdómen; algaliar (retirar no final); braço direito aberto, esquerdo ao longo do corpo; pernas fechadas."
+                "posicionamento": "Torre no lado direito do abdómen; algaliar (retirar no final); braço direito aberto, esquerdo ao longo do corpo; pernas fechadas."
             }
         },
         "Hemorroidectomia": {
@@ -270,7 +270,7 @@ checklists = {
                     "Tiras adesivo",
                     "Desinfeção com iodopovidona"
                 ],
-                "posicionamento": "🧍‍♂️ **Posicionamento:** Posição litotomia ou jackknife."
+                "posicionamento": "Posição litotomia ou jackknife."
             }
         },
         "Esfincterotomia e/ou Fissurectomia": {
@@ -294,7 +294,7 @@ checklists = {
                     "Bisturi elétrico",
                     "Adesivo castanho"
                 ],
-                "posicionamento": "🧍‍♂️ **Posicionamento:** Posição litotomia."
+                "posicionamento": "Posição litotomia."
             }
         }
     }
@@ -317,12 +317,11 @@ if especialidade:
             itens = checklists[especialidade][cirurgia][abordagem]["itens"]
             posicionamento = checklists[especialidade][cirurgia][abordagem]["posicionamento"]
 
-            # Posicionamento condicional: só mostra torre se Laparoscópica ou Artroscópica
-            if "Laparoscópica" in abordagem or "Artroscópica" in abordagem or "Endoscópica" in abordagem:
-                st.markdown("---")
-                st.markdown("### 🧍 Posicionamento do Doente e Torre")
-                st.markdown(posicionamento)
-                st.markdown("---")
+            # Posicionamento sempre visível como subtítulo
+            st.markdown("---")
+            st.markdown("### 🧍 Posicionamento")
+            st.markdown(posicionamento)
+            st.markdown("---")
 
             # Checklist de materiais
             st.subheader(f"Checklist de Materiais: {especialidade} → {cirurgia} ({abordagem})")
@@ -349,6 +348,5 @@ if especialidade:
 st.markdown("---")
 st.caption("Criado por BO Braga Sul")
 
-# 5 linhas abaixo, apenas AP (centralizado e discreto)
 st.markdown("<br>" * 5, unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; color: gray; font-size: 14px;'>AP</p>", unsafe_allow_html=True)
