@@ -1,11 +1,11 @@
 import streamlit as st
 
-# Estrutura completa: Especialidade → Cirurgia → Abordagem → Tipo
+# Estrutura: Especialidade → Cirurgia → Abordagem (só itens normais + posicionamento fixo)
 checklists = {
     "Obstetrícia/Ginecologia": {
         "Cesariana": {
             "Aberta": {
-                "Programada": [
+                "itens": [
                     "Betadine",
                     "Bisturi elétrico",
                     "Placa adulto",
@@ -23,18 +23,14 @@ checklists = {
                     "Seringa de 10cc de Água Bi",
                     "Penso impermeável 25cm"
                 ],
-                "Urgência": [
-                    "Kit de emergência obstétrica",
-                    "Oxitocina pronta",
-                    "Adrenalina 1:1000"
-                ]
+                "posicionamento": "🧍‍♀️ **Posicionamento do doente:** Decúbito dorsal, braços abertos, pernas em litotomia se necessário.\n🏥 Torre e monitor ao pé do doente."
             }
         }
     },
     "Cirurgia Geral": {
         "Hérnia Hiato": {
             "Laparoscópica": {
-                "Programada": [
+                "itens": [
                     "**FERROS:**",
                     "Cx operação",
                     "Cx laparoscopia",
@@ -65,15 +61,14 @@ checklists = {
                     "Premicron con plegets",
                     "Premiparch (plegets soltos)",
                     "Seda 2/0 (cortar tamanho do papel para secar paciente)",
-                    "V-loc 3/0 (vermelho)",
-                    "*Torre do lado direito do doente, quase na cabeça; pernas abertas como na colecistectomia, fixadas com venda crepe*"
+                    "V-loc 3/0 (vermelho)"
                 ],
-                "Urgência": []
+                "posicionamento": "🧍‍♂️ **Posicionamento:** Decúbito dorsal, pernas abertas como na colecistectomia, fixadas com venda crepe.\n🏥 Torre do lado direito do doente, quase na cabeça."
             }
         },
         "By-pass Gástrico": {
             "Laparoscópica": {
-                "Programada": [
+                "itens": [
                     "**FERROS:**",
                     "Cx operação",
                     "Cx laparoscopia",
@@ -106,15 +101,14 @@ checklists = {
                     "Vicryl 2/0 (5/8)",
                     "Ethilon 3/0",
                     "V-loc 3/0 (vermelho) (3 ou 4)",
-                    "Prolene 1 (agulha recta; se não houver, redonda e põe recta)",
-                    "*Torre do lado direito do doente, quase na cabeça; pernas abertas como na colecistectomia*"
+                    "Prolene 1 (agulha recta; se não houver, redonda e põe recta)"
                 ],
-                "Urgência": []
+                "posicionamento": "🧍‍♂️ **Posicionamento:** Pernas abertas como na colecistectomia.\n🏥 Torre do lado direito do doente, quase na cabeça."
             }
         },
         "Hérnia Inguinal": {
             "Laparoscópica": {
-                "Programada": [
+                "itens": [
                     "**FERROS:**",
                     "Cx operação",
                     "Cx laparoscopia",
@@ -137,16 +131,14 @@ checklists = {
                     "Prótese optilene mesh 15x15",
                     "**FIOS:**",
                     "Vicryl 2/0 (5/8)",
-                    "Ethilon 3/0",
-                    "*Torre nos pés do doente; pernas fechadas; pedal no lado esquerdo*",
-                    "*Rede: enrolar num canudinho com kelly na ponta; dar na grasper*"
+                    "Ethilon 3/0"
                 ],
-                "Urgência": []
+                "posicionamento": "🧍‍♂️ **Posicionamento:** Torre nos pés do doente; pernas fechadas; pedal no lado esquerdo.\n*Rede: enrolar num canudinho com kelly na ponta; dar na grasper*"
             }
         },
         "Hérnia Incisional/Umbilical": {
             "Laparoscópica": {
-                "Programada": [
+                "itens": [
                     "**FERROS:**",
                     "Cx operação",
                     "Cx laparoscopia",
@@ -171,15 +163,14 @@ checklists = {
                     "**FIOS:**",
                     "Vicryl 2/0 (5/8)",
                     "Ethilon 3/0",
-                    "Monosof 1 (fio duplo, verde por fora)",
-                    "*Torre lateral no lado esquerdo do doente*"
+                    "Monosof 1 (fio duplo, verde por fora)"
                 ],
-                "Urgência": []
+                "posicionamento": "🧍‍♂️ **Posicionamento:** Torre lateral no lado esquerdo do doente."
             }
         },
         "Fistulectomia": {
             "Aberta": {
-                "Programada": [
+                "itens": [
                     "**FERROS:**",
                     "Cx operação",
                     "Estilete",
@@ -193,12 +184,12 @@ checklists = {
                     "*Se infiltração PRP: agulha IM*",
                     "*Para quisto: mesmo que fistula, sem bisturi elétrico*"
                 ],
-                "Urgência": []
+                "posicionamento": "🧍‍♂️ **Posicionamento:** Posição litotomia ou prona conforme acesso."
             }
         },
         "Colecistectomia": {
             "Laparoscópica": {
-                "Programada": [
+                "itens": [
                     "**FERROS:**",
                     "Cx operação",
                     "Cx laparoscopia",
@@ -225,15 +216,14 @@ checklists = {
                     "Vicryl 2/0 (5/8)",
                     "Ethilon 3/0",
                     "*Monopolar: 35/35; CO2: 12-40*",
-                    "*Torre no lado direito do doente; pedal no meio das pernas; pernas abertas com crepe; braços abertos*",
                     "*No final: batufo (compressa cortada em 2 com betadine pomada + compressa dobrada em 4 por cima)*"
                 ],
-                "Urgência": []
+                "posicionamento": "🧍‍♂️ **Posicionamento:** Pernas abertas com crepe, braços abertos.\n🏥 Torre no lado direito do doente; pedal no meio das pernas do paciente."
             }
         },
         "Apendicectomia": {
             "Laparoscópica": {
-                "Programada": [
+                "itens": [
                     "**FERROS:**",
                     "Cx operação",
                     "Cx laparoscopia",
@@ -257,15 +247,14 @@ checklists = {
                     "Contentor anatomia",
                     "**FIOS:**",
                     "Vicryl 2/0 (5/8)",
-                    "Ethilon 3/0",
-                    "*Torre no lado direito do abdómen; algaliar (retirar no final); braço direito aberto, esquerdo ao longo do corpo; pernas fechadas*"
+                    "Ethilon 3/0"
                 ],
-                "Urgência": []
+                "posicionamento": "🧍‍♂️ **Posicionamento:** Torre no lado direito do abdómen; algaliar (retirar no final); braço direito aberto, esquerdo ao longo do corpo; pernas fechadas."
             }
         },
         "Hemorroidectomia": {
             "Aberta": {
-                "Programada": [
+                "itens": [
                     "**FERROS:**",
                     "Cx operação",
                     "Punhos foco",
@@ -283,12 +272,12 @@ checklists = {
                     "Tiras adesivo",
                     "Desinfeção com iodopovidona"
                 ],
-                "Urgência": []
+                "posicionamento": "🧍‍♂️ **Posicionamento:** Posição litotomia ou jackknife."
             }
         },
         "Esfincterotomia e/ou Fissurectomia": {
             "Aberta": {
-                "Programada": [
+                "itens": [
                     "**FERROS:**",
                     "Cx operação",
                     "Punhos de foco",
@@ -307,28 +296,24 @@ checklists = {
                     "Bisturi elétrico",
                     "Adesivo castanho"
                 ],
-                "Urgência": []
+                "posicionamento": "🧍‍♂️ **Posicionamento:** Posição litotomia."
             }
         }
     },
     "ORL": {
         "Adenoidectomia": {
             "Endoscópica": {
-                "Programada": [
-                    "Itens base adenoides programada"
+                "itens": [
+                    "Itens base adenoides"
                 ],
-                "Urgência": [
-                    "Bipolar com canula de aspiração para acopolar",
-                    "Adrenalina tópica",
-                    "Kit de hemorragia"
-                ]
+                "posicionamento": "🧍‍♂️ **Posicionamento:** Decúbito dorsal com hiperextensão cervical."
             }
         }
     },
     "Ortopedia": {
         "Artroscopia de Joelho": {
             "Artroscópica": {
-                "Programada": [
+                "itens": [
                     "Ótica 30º 4mm",
                     "Shaver e bomba de irrigação",
                     "Pinças de basket",
@@ -338,10 +323,7 @@ checklists = {
                     "Campos estéreis",
                     "Luvas estéreis"
                 ],
-                "Urgência": [
-                    "Antibiótico IV",
-                    "Analgesia intra-articular pronta"
-                ]
+                "posicionamento": "🧍‍♂️ **Posicionamento:** Decúbito dorsal, perna pendente ou com suporte."
             }
         }
     }
@@ -350,7 +332,7 @@ checklists = {
 st.set_page_config(page_title="Checklist Bloco Operatório", page_icon="🏥")
 
 st.title("🏥 Checklist de Materiais - Bloco Operatório")
-st.markdown("**Seleciona passo a passo para gerar a checklist personalizada**")
+st.markdown("**Seleciona a especialidade, cirurgia e abordagem para ver a checklist e posicionamento**")
 
 especialidade = st.selectbox("Especialidade", options=list(checklists.keys()))
 
@@ -361,35 +343,36 @@ if especialidade:
         abordagem = st.selectbox("Abordagem Cirúrgica", options=list(checklists[especialidade][cirurgia].keys()))
 
         if abordagem:
-            tipo = st.radio("Tipo de cirurgia", options=["Programada", "Urgência"])
+            itens = checklists[especialidade][cirurgia][abordagem]["itens"]
+            posicionamento = checklists[especialidade][cirurgia][abordagem].get("posicionamento", "Posicionamento padrão.")
 
-            itens_base = checklists[especialidade][cirurgia][abordagem].get(tipo, [])
-            itens_urgencia = checklists[especialidade][cirurgia][abordagem].get("Urgência", [])
-            itens_total = itens_base + itens_urgencia if tipo == "Urgência" else itens_base
+            # Posicionamento fixo
+            st.markdown("---")
+            st.markdown("### 🧍 Posicionamento do Doente e Torre")
+            st.markdown(posicionamento)
+            st.markdown("---")
 
-            st.subheader(f"Checklist: {especialidade} → {cirurgia} ({abordagem}) – {tipo}")
+            # Checklist de materiais
+            st.subheader(f"Checklist de Materiais: {especialidade} → {cirurgia} ({abordagem})")
 
-            if itens_total:
-                itens_em_falta = []
-                for item in itens_total:
-                    if item.startswith("**") or item.startswith("*"):
-                        st.markdown(item)
-                    else:
-                        verificado = st.checkbox(item, key=item)
-                        if not verificado:
-                            itens_em_falta.append(item)
+            itens_em_falta = []
+            for item in itens:
+                if item.startswith("**") or item.startswith("*"):
+                    st.markdown(item)
+                else:
+                    verificado = st.checkbox(item, key=item)
+                    if not verificado:
+                        itens_em_falta.append(item)
 
-                if st.button("🔍 Verificar Checklist", type="primary"):
-                    if itens_em_falta:
-                        st.error("⚠️ **ITENS EM FALTA:**")
-                        for item in itens_em_falta:
-                            st.write(f"• {item}")
-                        st.warning("Por favor, confirma estes itens antes de iniciar a cirurgia.")
-                    else:
-                        st.success("✅ **Tudo verificado! Pode prosseguir com segurança.**")
-                        st.balloons()
-            else:
-                st.info("Não há itens definidos para esta combinação.")
+            if st.button("🔍 Verificar Checklist", type="primary"):
+                if itens_em_falta:
+                    st.error("⚠️ **ITENS EM FALTA:**")
+                    for item in itens_em_falta:
+                        st.write(f"• {item}")
+                    st.warning("Por favor, confirma estes itens antes de iniciar a cirurgia.")
+                else:
+                    st.success("✅ **Tudo verificado! Pode prosseguir com segurança.**")
+                    st.balloons()
 
 st.markdown("---")
 st.caption("Criado por Artur Pinheiro 🚀")
